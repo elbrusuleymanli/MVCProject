@@ -1,0 +1,71 @@
+﻿
+@model TeacherCard
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create new Card</h4>
+
+                        <form class="forms-sample" method="post" asp-controller="Teacher" asp-action="Create" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Title</label>
+                                <input asp-for="Name" class="form-control " placeholder="Fullname">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Position</label>
+                                <input asp-for="Position" class="form-control" placeholder="Position">
+                                <span asp-validation-for="Position" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Image file</label>
+                                <input accept="image/*" asp-for="TeacherImageFile" class="form-control" placeholder="Image File">
+                                <span asp-validation-for="TeacherImageFile" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Sosial media</label>
+                                <input asp-for="Facebook" class="form-control" placeholder="Sosial media">
+                                <span asp-validation-for="Facebook" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Sosial media</label>
+                                <input asp-for="Vimeo" class="form-control" placeholder="Sosial media">
+                                <span asp-validation-for="Vimeo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Sosial media</label>
+                                <input asp-for="Pinterest" class="form-control" placeholder="Sosial media">
+                                <span asp-validation-for="Pinterest" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Sosial media</label>
+                                <input asp-for="Twitter" class="form-control" placeholder="Sosial media">
+                                <span asp-validation-for="Twitter" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light" asp-action="Index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

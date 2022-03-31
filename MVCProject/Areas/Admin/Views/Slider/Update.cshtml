@@ -1,0 +1,61 @@
+﻿
+@model Slider
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update slider</h4>
+
+                        <form class="forms-sample" method="post" asp-controller="Slider" asp-action="Update" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">TitleUp</label>
+                                <input asp-for="TitleUp" class="form-control " placeholder="TitleUp">
+                                <span asp-validation-for="TitleUp" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">TitleDown</label>
+                                <input asp-for="TitleDown" class="form-control" placeholder="TitleDown">
+                                <span asp-validation-for="TitleDown" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Description</label>
+                                <textarea asp-for="Desciption" class="form-control" placeholder="Description"></textarea>
+                                <span asp-validation-for="Desciption" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">ImageFile</label>
+                                <input accept="image/*" asp-for="ImageFile" class="form-control" placeholder="ImageFile">
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Order</label>
+                                <input asp-for="Order" class="form-control" placeholder="Order">
+                                <span asp-validation-for="Order" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Button</label>
+                                <input asp-for="Button" class="form-control" placeholder="Button">
+                                <span asp-validation-for="Button" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

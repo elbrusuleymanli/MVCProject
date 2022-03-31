@@ -1,0 +1,82 @@
+﻿@model BlogVM
+@{
+    ViewData["Title"] = "Index";
+}
+@section BgImage {
+
+    @foreach (var banner in Model.BlogBanners)
+    {
+        <style>
+
+
+            .banner-area {
+                background: url('../img/banner/@banner.Image') !important;
+        </style>
+    }
+}
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            @foreach (var item in Model.BlogBanners)
+                            {
+                                <h2>@item.Topic</h2>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model.BlogCards)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog mb-60">
+                        <div class="blog-img">
+                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id"><img src="~/img/blog/@item.Image" alt="blog"></a>
+                            <div class="blog-hover">
+                                @Html.Raw(item.LinkIcon)
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@item.Date @Html.Raw(item.CommentIcon) @item.CountComment</p>
+                            </div>
+                            <div class="blog-bottom " >
+                                <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Desc</a></h2>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Button</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="pagination">
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->

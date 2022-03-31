@@ -1,0 +1,67 @@
+﻿@model BlogCard
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create new Card</h4>
+
+                        <form class="forms-sample" method="post" asp-controller="Blog" asp-action="Create" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Date</label>
+                                <input asp-for="Date" class="form-control " placeholder="Date">
+                                <span asp-validation-for="Date" class="text-danger"></span>
+                            </div>
+
+                         
+                            
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">CommentIcon</label>
+                                <input asp-for="CommentIcon" class="form-control" placeholder="CommentIcon">
+                                <span asp-validation-for="CommentIcon" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Comment Count</label>
+                                <input asp-for="CountComment" class="form-control" placeholder="Comment Count">
+                                <span asp-validation-for="CountComment" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Description</label>
+                                <input asp-for="Desc" class="form-control" placeholder="Description">
+                                <span asp-validation-for="Desc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Button</label>
+                                <input asp-for="Button" class="form-control" placeholder="Button">
+                                <span asp-validation-for="Button" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Image file</label>
+                                <input accept="image/*" asp-for="BlogImageFile" class="form-control" placeholder="Image File">
+                                <span asp-validation-for="BlogImageFile" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light" asp-action="Index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

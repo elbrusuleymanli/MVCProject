@@ -1,0 +1,70 @@
+﻿
+@model EventCard
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update Event Card</h4>
+
+                        <form class="forms-sample" method="post" asp-controller="Event" asp-action="Update" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Title</label>
+                                <input asp-for="Title" class="form-control " placeholder="Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Date</label>
+                                <input asp-for="Date" class="form-control" placeholder="Example: 01">
+                                <span asp-validation-for="Date" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Month</label>
+                                <input asp-for="Month" class="form-control" placeholder="Example: JAN">
+                                <span asp-validation-for="Month" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Time</label>
+                                <input asp-for="Time" class="form-control" placeholder="Example: 9.00 AM - 4.45 PM">
+                                <span asp-validation-for="Time" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">City</label>
+                                <input asp-for="City" class="form-control" placeholder="City">
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Image file</label>
+                                <input accept="image/*" asp-for="EventImageFile" class="form-control" placeholder="Image File">
+                                <span asp-validation-for="EventImageFile" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Button</label>
+                                <input asp-for="Button" class="form-control" placeholder="Button">
+                                <span asp-validation-for="Button" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light" asp-action="Index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

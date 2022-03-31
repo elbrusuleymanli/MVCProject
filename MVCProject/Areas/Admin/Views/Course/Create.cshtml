@@ -1,0 +1,53 @@
+﻿@model CourseCard
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create new card</h4>
+
+                        <form class="forms-sample" method="post" asp-controller="Course" asp-action="Create" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Title</label>
+                                <input asp-for="Title" class="form-control " placeholder="Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Description</label>
+                                <textarea asp-for="Desc" class="form-control" placeholder="Description"></textarea>
+                                <span asp-validation-for="Desc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Image file</label>
+                                <input accept="image/*" asp-for="CardImageFile" class="form-control" placeholder="Image File">
+                                <span asp-validation-for="CardImageFile" class="text-danger"></span>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Button</label>
+                                <input asp-for="Button" class="form-control" placeholder="Button">
+                                <span asp-validation-for="Button" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-check form-check-flat form-check-primary">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input">
+                                    Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light" asp-action="Index">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

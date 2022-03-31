@@ -1,0 +1,33 @@
+﻿
+@model BlogCard
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-4 grid-margin grid-margin-md-0 stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="color:blue">Blog Card</h2>
+
+                        <h4 class="card-title"><img src="~/img/blog/@Model.Image" style="width:300px; height:220px" /></h4>
+
+                        <ul class="list-star">
+                            <li><span style="color:blue">Date:</span>  @Model.Date</li>
+                            <li><span style="color:blue">Comment Icon: </span>  @Model.CommentIcon</li>
+                            <li><span style="color:blue">Comment Count: </span>  @Model.CountComment</li>
+                            <li><span style="color:blue">Description: </span>  @Model.Desc</li>
+                            <li><span style="color:blue">Button: </span>  @Model.Button</li>
+                           
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
