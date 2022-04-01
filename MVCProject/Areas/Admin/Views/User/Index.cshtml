@@ -63,12 +63,12 @@
                                                 <a class="btn btn-danger mt-2" asp-controller="User" asp-action="ToggleBlock" asp-route-id="@user.Id">
                                                     @if (user.IsActive)
                                                     {
-                                                        <p style="margin:-3px">Unblock User</p>
+                                                        <p style="margin:-3px">Block User</p>
                                                     }
 
                                                     else
                                                     {
-                                                        <p style="margin:-3px">Block User</p>
+                                                <p style="margin:-3px">Unblock User</p>
                                                     }
                                                 </a>
 

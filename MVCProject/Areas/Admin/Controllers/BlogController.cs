@@ -25,13 +25,13 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var blogCard = await _context.BlogCards.ToListAsync();
+            var blogCard = await _context.BlogDetailCards.ToListAsync();
             return View(blogCard);
         }
 
         public async Task<IActionResult> Detail(int id)
         {
-            var cards = await _context.BlogCards.FindAsync(id);
+            var cards = await _context.BlogDetailCards.FindAsync(id);
             if (cards == null) return NotFound();
             return View(cards);
 
@@ -45,7 +45,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(BlogCard blogCard)
+        public async Task<IActionResult> Create(BlogDetailCard blogCard)
         {
             if (!ModelState.IsValid) return View();
 
@@ -59,7 +59,7 @@ namespace MVCProject.Areas.Admin.Controllers
             var folderPath = FileConstants.BlogImagePath;
 
             blogCard.Image = FileUtils.CreateFile(folderPath, blogCard.BlogImageFile);
-            await _context.BlogCards.AddAsync(blogCard);
+            await _context.BlogDetailCards.AddAsync(blogCard);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -67,7 +67,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var blogCard = await _context.BlogCards.FindAsync(id);
+            var blogCard = await _context.BlogDetailCards.FindAsync(id);
             if (blogCard == null) return NotFound();
 
             return View(blogCard);
@@ -77,7 +77,7 @@ namespace MVCProject.Areas.Admin.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteCard(int id)
         {
-            var blogCard = await _context.BlogCards.FindAsync(id);
+            var blogCard = await _context.BlogDetailCards.FindAsync(id);
             if (blogCard == null) return NotFound();
 
             var fullPath = Path.Combine(FileConstants.BlogImagePath, blogCard.Image);
@@ -86,7 +86,7 @@ namespace MVCProject.Areas.Admin.Controllers
             FileUtils.DeleteFile(fullPath);
 
 
-            _context.BlogCards.Remove(blogCard);
+            _context.BlogDetailCards.Remove(blogCard);
 
             await _context.SaveChangesAsync();
 
@@ -95,7 +95,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var blogCard = await _context.BlogCards.FindAsync(id);
+            var blogCard = await _context.BlogDetailCards.FindAsync(id);
 
             if (blogCard == null) return NotFound();
 
@@ -104,9 +104,9 @@ namespace MVCProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, BlogCard blogCard)
+        public async Task<IActionResult> Update(int id, BlogDetailCard blogCard)
         {
-            var dbblogCard = await _context.BlogCards.FindAsync(id);
+            var dbblogCard = await _context.BlogDetailCards.FindAsync(id);
 
             if (dbblogCard == null) return NotFound();
             if (id != blogCard.Id) return BadRequest();
@@ -117,10 +117,10 @@ namespace MVCProject.Areas.Admin.Controllers
             dbblogCard.Image = FileUtils.CreateFile(FileConstants.BlogImagePath, blogCard.BlogImageFile);
 
             dbblogCard.Date = blogCard.Date;
-            dbblogCard.CommentIcon = blogCard.CommentIcon;
+          
             dbblogCard.CountComment = blogCard.CountComment;
             dbblogCard.Desc = blogCard.Desc;
-            dbblogCard.Button = blogCard.Button;
+            
            
 
 

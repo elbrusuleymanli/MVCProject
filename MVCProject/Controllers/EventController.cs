@@ -24,7 +24,7 @@ namespace MVCProject.Controllers
             EventVM model = new EventVM
             {
                 EventBanners = await _context.EventBanner.ToListAsync(),
-                EventCards=await _context.EventCards.ToListAsync()
+                EventDetailCards=await _context.EventDetailCards.ToListAsync()
             };
       
 

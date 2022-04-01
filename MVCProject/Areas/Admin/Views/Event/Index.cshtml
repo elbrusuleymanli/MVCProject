@@ -1,4 +1,4 @@
-﻿@model List<EventCard>
+﻿@model List<EventDetailCard>
 @{
     ViewData["Title"] = "Index";
 }
@@ -19,7 +19,7 @@
                                         <th>
                                             Image
                                         </th>
-                                       
+
                                         <th>
                                             Title
                                         </th>
@@ -30,10 +30,16 @@
                                             Month
                                         </th>
                                         <th>
-                                            Time
+                                            Start Time
+                                        </th>
+                                        <th>
+                                            End Time
                                         </th>
                                         <th>
                                             City
+                                        </th>
+                                        <th>
+                                            Adress
                                         </th>
 
                                         <th>
@@ -50,21 +56,26 @@
                                             <img src="~/img/event/@card.Image" style="width:300px; height:300px" />
                                         </td>
                                         <td>
-                                            @card.Title
+                                            @card.Descr
                                         </td>
                                         <td>
-                                            @card.Date
+                                            @card.StartDate.ToString("dd")
                                         </td>
                                         <td>
-                                            @card.Month
+                                            @card.StartDate.ToString("MMM")
                                         </td>
                                         <td>
-                                            @card.Time
+                                            @card.StartDate.ToString("H:mm")
+                                        </td>
+                                        <td>
+                                            @card.EndDate.ToString("H:mm")
                                         </td>
                                         <td>
                                             @card.City
                                         </td>
-
+                                        <td>
+                                            @card.Adress
+                                        </td>
                                         <td>
 
 

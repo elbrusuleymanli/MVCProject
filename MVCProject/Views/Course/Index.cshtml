@@ -1,16 +1,10 @@
-﻿@model CourseVM
+﻿@model List<CourseDetailCard>
 @{
     ViewData["Title"] = "Index";
 }
 @section BgImage {
 
-    @foreach (var banner in Model.CourseBanners)
-    {
-        <style>
-            .banner-area {
-                background: url('../img/banner/@banner.Image') !important;
-        </style>
-    }
+    
 }
 <!-- Banner Area Start -->
 <div class="banner-area-wrapper">
@@ -20,7 +14,11 @@
                 <div class="col-12">
                     <div class="banner-content-wrapper">
                         <div class="banner-content">
-                            <h2>courses</h2>
+                            @foreach (var item in Model.Take(1))
+                            {
+                                <h2>@item.BannerTopic</h2>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -46,7 +44,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var item in Model.CourseCards)
+            @foreach (var item in Model)
             {
                 <div class="col-lg-4 col-md-6">
 
@@ -55,14 +53,15 @@
                             <a asp-controller="Course" asp-action="Detail" asp-route-id="@item.Id">
                                 <img src="~/img/course/@item.Image" alt="course">
                                 <div class="course-hover">
-                                    @Html.Raw(item.Link)
+                                   <i class="fa fa-link"></i>
                                 </div>
                             </a>
                         </div>
                         <div class="course-content">
                             <h3><a href="course-details.html">@item.Title</a></h3>
-                            <p>@item.Desc </p>
-                            <a class="default-btn"  asp-controller="Course" asp-action="Detail" asp-route-id="@item.Id">@item.Button</a>
+                          
+                            <p class="descr">@item.Description </p>
+                            <a class="default-btn"  asp-controller="Course" asp-action="Detail" asp-route-id="@item.Id">read more</a>
                         </div>
                     </div> 
                 </div>

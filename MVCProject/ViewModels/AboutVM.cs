@@ -10,7 +10,7 @@ namespace MVCProject.ViewModels
     {
         public List<AboutEduHome> AboutEduHomes { get; set; }
         public List<AboutBanner> AboutBanners { get; set; }
-        public List<AboutTeacher> AboutTeachers { get; set; }
+        public List<Teacher> Teachers { get; set; }
         public List<Testimonial> Testimonials { get; set; }
     }
 }

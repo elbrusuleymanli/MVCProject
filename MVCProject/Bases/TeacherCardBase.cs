@@ -8,11 +8,19 @@ namespace MVCProject.Bases
     public class TeacherCardBase
     {
         public string Image { get; set; }
-        public string Name { get; set; }
+        public string Fullname { get; set; }
         public string Position { get; set; }
-        public string Facebook { get; set; }
-        public string Pinterest { get; set; }
-        public string Vimeo { get; set; }
-        public string Twitter { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Degree { get; set; }
+        public string Experience { get; set; }
+        public string Hobby { get; set; }
+        public string Faculty { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+
+        public string BannerImage { get; set; }
+        public string BannerTopic { get; set; }
+
     }
 }

@@ -40,23 +40,23 @@
     <div class="container">
         <div class="row">
 
-            @foreach (var item in Model.BlogCards)
+            @foreach (var item in Model.BlogDetailCards)
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="single-blog mb-60">
                         <div class="blog-img">
                             <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id"><img src="~/img/blog/@item.Image" alt="blog"></a>
                             <div class="blog-hover">
-                                @Html.Raw(item.LinkIcon)
+                                <i class="fa fa-link"></i>
                             </div>
                         </div>
                         <div class="blog-content">
                             <div class="blog-top">
-                                <p>@item.Date @Html.Raw(item.CommentIcon) @item.CountComment</p>
+                                <p>@item.Date <i class="fa fa-comments-o"></i> @item.CountComment</p>
                             </div>
                             <div class="blog-bottom " >
                                 <h2><a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Desc</a></h2>
-                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Button</a>
+                                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">read more</a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-﻿@model List<CourseCard>
+﻿@model List<CourseDetailCard>
 @{
     ViewData["Title"] = "Index";
 }
@@ -25,10 +25,7 @@
                                         <th>
                                            Description
                                         </th>
-                                        <th>
-                                            Button
-                                        </th>
-                                       
+                                     
                                         <th>
                                             Actions
                                         </th>
@@ -46,11 +43,9 @@
                                                 @card.Title
                                             </td>
                                             <td>
-                                                @card.Desc
+                                                @card.Descr
                                             </td>
-                                            <td>
-                                                @card.Button
-                                            </td>
+                                           
                                            
                                             <td>
 

@@ -39,7 +39,7 @@
 <div class="event-area three text-center pt-150 pb-150">
     <div class="container">
         <div class="row">
-            @foreach (var item in Model.EventCards)
+            @foreach (var item in Model.EventDetailCards)
             {
                 <div class="col-lg-4 col-md-6">
                     <div class="single-event mb-60">
@@ -47,21 +47,21 @@
                             <a asp-action="Detail" asp-controller="Event" asp-route-id="@item.Id">
                                 <img src="~/img/event/@item.Image" alt="event">
                                 <div class="course-hover">
-                                   @Html.Raw(item.Link)
+                                   <i class="fa fa-link"></i>
                                 </div>
                             </a>
                             <div class="event-date">
-                                <h3>@item.Date <span>@item.Month</span></h3>
+                                <h3>@item.StartDate.ToString("dd") <span>@item.StartDate.ToString("MMM")</span></h3>
                             </div>
                         </div>
                         <div class="event-content text-start">
-                            <h4><a href="event-details.html">@item.Title</a></h4>
+                            <h4><a href="event-details.html">@item.Descr</a></h4>
                             <ul>
-                                <li><span>time:</span> @item.Time</li>
-                                <li><span>venue</span> @item.Month</li>
+                                <li><span>time:</span> @item.StartDate.ToString("H:mm") @item.EndDate.ToString("H:mm") </li>
+                                <li><span>venue</span> @item.Adress</li>
                             </ul>
                             <div class="event-content-right">
-                                <a class="default-btn" asp-action="Detail" asp-controller="Event" asp-route-id="@item.Id">@item.Button</a>
+                                <a class="default-btn" asp-action="Detail" asp-controller="Event" asp-route-id="@item.Id">join now</a>
                             </div>
                         </div>
                     </div>

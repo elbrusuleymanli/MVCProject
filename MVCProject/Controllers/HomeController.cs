@@ -31,18 +31,21 @@ namespace MVCProject.Controllers
                 NoticeBoards = await _context.NoticeBoards.ToListAsync(),
                 RightNotices = await _context.HomeRightNotices.ToListAsync(),
                 WhyChooses = await _context.WhyChooses.ToListAsync(),
-                CourseTitles = await _context.HomeCourseTitles.ToListAsync(),
-               
-                CourseCards = await _context.HomeCards.ToListAsync(),
+              
+
+                CourseDetailCards = await _context.CourseDetailCards.ToListAsync(),
                 Events = await _context.HomeEvents.ToListAsync(),
-                EventRights = await _context.HomeEventRights.ToListAsync(),
+
                 Testimonials = await _context.Testimonials.Include(t => t.Position).ToListAsync(),
-                Blogs = await _context.HomeBlogs.ToListAsync(),
-                Subscribes=await _context.Subscribes.ToListAsync()
+                BlogDetailCards = await _context.BlogDetailCards.ToListAsync(),
+                Subscribes = await _context.Subscribes.ToListAsync(),
+                EventDetailCards = await _context.EventDetailCards.ToListAsync()
             };
 
             return View(model);
         }
+
+        
    
      
     }

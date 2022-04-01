@@ -21,17 +21,16 @@ namespace MVCProject.Controllers
 
         public async Task<IActionResult>  Index()
         {
-            TeacherVM model = new TeacherVM
-            {
-                TeacherBanners = await _context.TeacherBanners.ToListAsync(),
-                TeacherCards=await _context.TeacherCards.ToListAsync()
-            };
 
-            return View(model);
+
+            var teachers = await _context.Teachers.ToListAsync();
+         
+
+            return View(teachers);
         }
-        public async Task<IActionResult>Detail (int id)
+        public async Task<IActionResult> Detail (int id)
         {
-            TeacherDetailCard teachers =await _context.TeacherDetailCards.FirstOrDefaultAsync(t => t.Id == id);
+            Teacher teachers =await _context.Teachers.FindAsync( id);
             return View(teachers);
         }
     }

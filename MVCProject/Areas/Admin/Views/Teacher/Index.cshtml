@@ -1,5 +1,5 @@
 ﻿
-@model List<TeacherCard>
+@model List<Teacher>
 @{
     ViewData["Title"] = "Index";
 }
@@ -21,22 +21,34 @@
                                             Image
                                         </th>
                                         <th>
-                                           Fullname
+                                            Fullname
                                         </th>
                                         <th>
                                             Position
                                         </th>
                                         <th>
-                                           Sosial Media
+                                            Title
                                         </th>
                                         <th>
-                                            Sosial Media
+                                            Description
                                         </th>
                                         <th>
-                                            Sosial Media
+                                            Degree
                                         </th>
                                         <th>
-                                            Sosial Media
+                                            Experience
+                                        </th>
+                                        <th>
+                                            Hobby
+                                        </th>
+                                        <th>
+                                            Faculty
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Phone
                                         </th>
 
                                         <th>
@@ -53,24 +65,35 @@
                                             <img src="~/img/teacher/@card.Image" style="width:300px; height:300px" />
                                         </td>
                                         <td>
-                                            @card.Name
+                                            @card.Fullname
                                         </td>
                                         <td>
                                             @card.Position
                                         </td>
                                         <td>
-                                            @Html.Raw(card.Facebook)
+                                            @card.Title
                                         </td>
                                         <td>
-                                            @Html.Raw(card.Vimeo)
+                                            @card.Description
                                         </td>
                                         <td>
-                                            @Html.Raw(card.Pinterest)
+                                            @card.Degree
                                         </td>
                                         <td>
-                                            @Html.Raw(card.Twitter)
+                                            @card.Experience
                                         </td>
-
+                                        <td>
+                                            @card.Hobby
+                                        </td>
+                                        <td>
+                                            @card.Faculty
+                                        </td>
+                                        <td>
+                                            @card.Email
+                                        </td>
+                                        <td>
+                                            @card.Phone
+                                        </td>
                                         <td>
 
 

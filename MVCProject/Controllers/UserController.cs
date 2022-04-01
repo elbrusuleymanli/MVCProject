@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVCProject.Areas.Admin.ViewModels;
 using MVCProject.Constants;
 using MVCProject.Models;
 using MVCProject.Services;
@@ -16,7 +17,7 @@ namespace MVCProject.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IMailService _mailService;
-        public UserController(UserManager<User> userManager,IMailService mailService,SignInManager<User> signInManager)
+        public UserController(UserManager<User> userManager, IMailService mailService, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _mailService = mailService;
@@ -29,12 +30,12 @@ namespace MVCProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task <IActionResult> Login(LoginVM model)
+        public async Task<IActionResult> Login(LoginVM model)
         {
             if (!ModelState.IsValid) return View();
 
-            var user =await _userManager.FindByNameAsync(model.Username);
-            if (user == null)user= await _userManager.FindByEmailAsync(model.Username);
+            var user = await _userManager.FindByNameAsync(model.Username);
+            if (user == null) user = await _userManager.FindByEmailAsync(model.Username);
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid request");
@@ -49,7 +50,7 @@ namespace MVCProject.Controllers
             }
 
 
-            var signInResult =await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+            var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
 
             if (!signInResult.Succeeded)
             {
@@ -73,17 +74,17 @@ namespace MVCProject.Controllers
             if (user != null)
             {
                 ModelState.AddModelError("Username", "Existing username");
-            
-            
-            return View();
+
+
+                return View();
             }
 
             User newUser = new User
             {
                 Fullname = model.Fullname,
                 UserName = model.Username,
-                Email= model.Email
-                           };
+                Email = model.Email
+            };
 
             var identityResult = await _userManager.CreateAsync(newUser, model.Password);
 
@@ -96,9 +97,9 @@ namespace MVCProject.Controllers
                 return View();
             }
 
-         await _userManager.AddToRoleAsync(newUser,RoleConstants.User);
+            await _userManager.AddToRoleAsync(newUser, RoleConstants.User);
             //create token
-            var token =await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
             //create link
             var link = Url.Action(nameof(ConfirmEmail), "User", new { newUser.UserName, token }, Request.Scheme);
 
@@ -109,16 +110,16 @@ namespace MVCProject.Controllers
                 Subject = "Registration Confirm"
             });
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
-        
-        public async Task<IActionResult> ConfirmEmail(string username,string token)
+
+        public async Task<IActionResult> ConfirmEmail(string username, string token)
         {
-            var user = await  _userManager.FindByNameAsync(username);
+            var user = await _userManager.FindByNameAsync(username);
             if (user == null) return BadRequest();
 
-          var IdentityResult=await _userManager.ConfirmEmailAsync(user, token);
+            var IdentityResult = await _userManager.ConfirmEmailAsync(user, token);
 
             if (!IdentityResult.Succeeded)
             {
@@ -133,5 +134,7 @@ namespace MVCProject.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+      
     }
 }

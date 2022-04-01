@@ -29,14 +29,14 @@
                     <div class="event-details-img">
                         <img src="~/img/event/@Model.Image" alt="event-details" style="width:100%">
                         <div class="event-date">
-                            <h3>20 <span>jun</span></h3>
+                            <h3>@Model.StartDate.ToString("dd") <span>@Model.StartDate.ToString("MMM")</span></h3>
                         </div>
                     </div>
                     <div class="event-details-content">
                         <h2>@Model.Descr</h2>
                         <ul>
-                            <li><span>time : </span>9:30am - 4:45pm</li>
-                            <li><span>venue : </span>Cristal Centre, 254 New Yourk</li>
+                            <li><span>time : </span>@Model.StartDate.ToString("H:mm") - @Model.StartDate.ToString("H:mm")</li>
+                            <li><span>venue : </span>@Model.Adress</li>
                         </ul>
                         <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asnatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui </p>
                         <p>I must explain to you how all this a mistaken idea of denouncing great explorer of the rut the is lder of human happiness pcias unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem </p>

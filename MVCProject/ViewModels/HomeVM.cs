@@ -13,12 +13,14 @@ namespace MVCProject.ViewModels
         public List<NoticeBoard> NoticeBoards { get; set; }
         public List<HomeRightNotice> RightNotices { get; set; }
         public List<WhyChoose> WhyChooses { get; set; }
-        public List<HomeCourseTitle> CourseTitles { get; set; }
-        public List<HomeCard> CourseCards { get; set; }
+
+        public List<CourseDetailCard> CourseDetailCards { get; set; }
         public List<HomeEvent> Events { get; set; }
-        public List<HomeEventRight> EventRights { get; set; }
+        public List<EventDetailCard> EventDetailCards { get; set; }
+
+        public List<BlogDetailCard> BlogDetailCards { get; set; }
         public List<Testimonial> Testimonials { get; set; }
-        public List<HomeBlog> Blogs { get; set; }
+        
         public List<Subscribe> Subscribes { get; set; }
        
 

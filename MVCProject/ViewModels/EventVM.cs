@@ -9,7 +9,7 @@ namespace MVCProject.ViewModels
 {
     public class EventVM
     {
-        public List<EventCard> EventCards { get; set; }
+     
         public List<EventBanner> EventBanners { get; set; }
         public List<EventDetailCard> EventDetailCards { get; set; }
     }

@@ -13,5 +13,7 @@ namespace MVCProject.Areas.Admin.ViewModels
         public string NewPassword { get; set; }
         [Required, DataType(DataType.Password),Compare(nameof(NewPassword))]
         public string ConfirmNewPassword { get; set; }
+
+
     }
 }

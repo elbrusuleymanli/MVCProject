@@ -24,7 +24,7 @@ namespace MVCProject.Controllers
             BlogVM model = new BlogVM
             {
                 BlogBanners=await _context.BlogBanners.ToListAsync(),
-                BlogCards = await _context.BlogCards.ToListAsync()
+                BlogDetailCards = await _context.BlogDetailCards.ToListAsync()
             };
             return View(model);
         }

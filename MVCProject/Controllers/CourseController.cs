@@ -27,19 +27,17 @@ namespace MVCProject.Controllers
         public async Task<IActionResult> Index()
         {
 
-            CourseVM model = new CourseVM
-            {
-                CourseBanners = await _context.CourseBanners.ToListAsync(),
-                CourseCards = await _context.CourseCards.ToListAsync(),
-                CourseDetailCards = await _context.CourseDetailCard.ToListAsync()
-            };
 
-            return View(model);
+
+            var courseDetailCards = await _context.CourseDetailCards.ToListAsync();
+            
+
+            return View(courseDetailCards);
         }
 
         public async Task<IActionResult> Detail(int id)
         {
-            CourseDetailCard courseDetailCards = await _context.CourseDetailCard.FirstOrDefaultAsync(c => c.Id == id);
+            CourseDetailCard courseDetailCards = await _context.CourseDetailCards.FirstOrDefaultAsync(c => c.Id == id);
             if (courseDetailCards == null) return NotFound();
 
             

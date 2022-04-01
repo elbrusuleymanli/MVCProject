@@ -1,5 +1,5 @@
 ﻿
-@model EventCard
+@model EventDetailCard
 @{
     ViewData["Title"] = "Detail";
 }
@@ -15,12 +15,13 @@
                         <h4 class="card-title"><img src="~/img/event/@Model.Image" style="width:300px; height:220px" /></h4>
 
                         <ul class="list-star">
-                            <li><span style="color:blue">Title:</span>  @Model.Title</li>
-                            <li><span style="color:blue">Date: </span>  @Model.Date</li>
-                            <li><span style="color:blue">Month: </span>  @Model.Month</li>
-                            <li><span style="color:blue">Time: </span>  @Model.Time</li>
-                            <li><span style="color:blue">City: </span>  @Model.City</li>
-                            <li><span style="color:blue">Button:</span>  @Model.Button</li>
+                            <li><span style="color:blue">Title:</span>  @Model.Descr</li>
+                            <li><span style="color:blue"> Date:</span>  @Model.StartDate.ToString("dd")</li>
+                            <li><span style="color:blue">Month:</span>  @Model.StartDate.ToString("MMM")</li>
+                            <li><span style="color:blue">Start Time:</span> @Model.StartDate.ToString("H:mm")</li>
+                            <li><span style="color:blue">End Time:</span>  @Model.EndDate.ToString("H:mm")</li>
+                            <li><span style="color:blue">City:</span>  @Model.City</li>
+                            <li><span style="color:blue">Adress:</span>  @Model.Adress</li>
 
                         </ul>
                     </div>

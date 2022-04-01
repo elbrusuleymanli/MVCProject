@@ -24,12 +24,12 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var card = _context.TeacherCards.ToList();
+            var card = _context.Teachers.ToList();
             return View(card);
         }
         public async Task<IActionResult> Detail(int id)
         {
-            var cards = await _context.TeacherCards.FindAsync(id);
+            var cards = await _context.Teachers.FindAsync(id);
             if (cards == null) return NotFound();
             return View(cards);
 
@@ -43,7 +43,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(TeacherCard teacherCard)
+        public async Task<IActionResult> Create(Teacher teacherCard)
         {
             if (!ModelState.IsValid) return View();
 
@@ -57,7 +57,7 @@ namespace MVCProject.Areas.Admin.Controllers
             var folderPath = FileConstants.TeacherImagePath;
 
             teacherCard.Image = FileUtils.CreateFile(folderPath, teacherCard.TeacherImageFile);
-            await _context.TeacherCards.AddAsync(teacherCard);
+            await _context.Teachers.AddAsync(teacherCard);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -65,7 +65,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var teacherCard = await _context.TeacherCards.FindAsync(id);
+            var teacherCard = await _context.Teachers.FindAsync(id);
             if (teacherCard == null) return NotFound();
 
             return View(teacherCard);
@@ -75,7 +75,7 @@ namespace MVCProject.Areas.Admin.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteCard(int id)
         {
-            var teacherCard = await _context.TeacherCards.FindAsync(id);
+            var teacherCard = await _context.Teachers.FindAsync(id);
             if (teacherCard == null) return NotFound();
 
             var fullPath = Path.Combine(FileConstants.TeacherImagePath, teacherCard.Image);
@@ -84,7 +84,7 @@ namespace MVCProject.Areas.Admin.Controllers
             FileUtils.DeleteFile(fullPath);
 
 
-            _context.TeacherCards.Remove(teacherCard);
+            _context.Teachers.Remove(teacherCard);
 
             await _context.SaveChangesAsync();
 
@@ -93,7 +93,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var teacherCard = await _context.TeacherCards.FindAsync(id);
+            var teacherCard = await _context.Teachers.FindAsync(id);
 
             if (teacherCard == null) return NotFound();
 
@@ -102,9 +102,9 @@ namespace MVCProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, TeacherCard teacherCard)
+        public async Task<IActionResult> Update(int id, Teacher teacherCard)
         {
-            var dbteacherCard = await _context.TeacherCards.FindAsync(id);
+            var dbteacherCard = await _context.Teachers.FindAsync(id);
 
             if (dbteacherCard == null) return NotFound();
             if (id != teacherCard.Id) return BadRequest();
@@ -114,12 +114,16 @@ namespace MVCProject.Areas.Admin.Controllers
 
             dbteacherCard.Image = FileUtils.CreateFile(FileConstants.TeacherImagePath, teacherCard.TeacherImageFile);
 
-            dbteacherCard.Name = teacherCard.Name;
+            dbteacherCard.Fullname = teacherCard.Fullname;
             dbteacherCard.Position = teacherCard.Position;
-            dbteacherCard.Facebook = teacherCard.Facebook;
-            dbteacherCard.Vimeo = teacherCard.Vimeo;
-            dbteacherCard.Pinterest = teacherCard.Pinterest;
-            dbteacherCard.Twitter = teacherCard.Twitter;
+            dbteacherCard.Title = teacherCard.Title;
+            dbteacherCard.Description = teacherCard.Description;
+            dbteacherCard.Degree = teacherCard.Degree;
+            dbteacherCard.Experience = teacherCard.Experience;
+            dbteacherCard.Hobby = teacherCard.Hobby;
+            dbteacherCard.Faculty = teacherCard.Faculty;
+            dbteacherCard.Email = teacherCard.Email;
+            dbteacherCard.Phone = teacherCard.Phone;
 
 
 

@@ -25,13 +25,13 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task <IActionResult> Index()
         {
-            var cards = await _context.CourseCards.ToListAsync(); 
+            var cards = await _context.CourseDetailCards.ToListAsync(); 
             return View(cards);
         }
 
         public async Task<IActionResult> Detail(int id)
         {
-            var cards = await _context.CourseCards.FindAsync(id);
+            var cards = await _context.CourseDetailCards.FindAsync(id);
             if (cards == null) return NotFound();
             return View(cards);
 
@@ -45,7 +45,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
              [HttpPost]
             [ValidateAntiForgeryToken]
-        public  async Task<IActionResult> Create(CourseCard courseCard)
+        public  async Task<IActionResult> Create(CourseDetailCard courseCard)
         {
             if (!ModelState.IsValid) return View();
            
@@ -59,14 +59,14 @@ namespace MVCProject.Areas.Admin.Controllers
             var folderPath = FileConstants.CourseImagePath;
 
             courseCard.Image = FileUtils.CreateFile(folderPath, courseCard.CardImageFile);
-            await _context.CourseCards.AddAsync(courseCard);
+            await _context.CourseDetailCards.AddAsync(courseCard);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
         public async Task<IActionResult> Delete(int id)
         {
-            var courseCard= await _context.CourseCards.FindAsync(id);
+            var courseCard= await _context.CourseDetailCards.FindAsync(id);
             if (courseCard == null) return NotFound();
 
             return View(courseCard);
@@ -76,7 +76,7 @@ namespace MVCProject.Areas.Admin.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteCard(int id)
         {
-            var courseCard = await _context.CourseCards.FindAsync(id);
+            var courseCard = await _context.CourseDetailCards.FindAsync(id);
             if (courseCard == null) return NotFound();
 
             var fullPath = Path.Combine(FileConstants.CourseImagePath, courseCard.Image);
@@ -85,7 +85,7 @@ namespace MVCProject.Areas.Admin.Controllers
             FileUtils.DeleteFile(fullPath);
 
 
-            _context.CourseCards.Remove(courseCard);
+            _context.CourseDetailCards.Remove(courseCard);
 
             await _context.SaveChangesAsync();
 
@@ -94,7 +94,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var courseCard = await _context.CourseCards.FindAsync(id);
+            var courseCard = await _context.CourseDetailCards.FindAsync(id);
 
             if (courseCard == null) return NotFound();
 
@@ -103,9 +103,9 @@ namespace MVCProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, CourseCard courseCard)
+        public async Task<IActionResult> Update(int id, CourseDetailCard courseCard)
         {
-            var dbcourseCard = await _context.CourseCards.FindAsync(id);
+            var dbcourseCard = await _context.CourseDetailCards.FindAsync(id);
 
             if (dbcourseCard == null) return NotFound();
             if (id != courseCard.Id) return BadRequest();
@@ -116,8 +116,8 @@ namespace MVCProject.Areas.Admin.Controllers
             dbcourseCard.Image = FileUtils.CreateFile(FileConstants.CourseImagePath, courseCard.CardImageFile);
 
             dbcourseCard.Title = courseCard.Title;
-            dbcourseCard.Desc = courseCard.Desc;
-            dbcourseCard.Button = courseCard.Button;
+            dbcourseCard.Descr = courseCard.Descr;
+            
            
 
 

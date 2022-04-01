@@ -123,13 +123,16 @@ namespace MVCProject.Areas.Admin.Controllers
 
             if (!ModelState.IsValid) return View();
 
-            //if(!await _userManager.CheckPasswordAsync(user, model.OldPassword))
+            //if (!ModelState.IsValid) return View();
+
+            //if (!await _userManager.CheckPasswordAsync(user, model.OldPassword))
             //{
             //    ModelState.AddModelError(nameof(ChangePasswordVM.OldPassword), "Incorrect password");
             //    return View();
             //}
-            //var idResult = await _userManager.ChangePasswordAsync(user,model.OldPassword, model.NewPassword);
-           
+            //var idResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 

@@ -20,35 +20,32 @@ namespace MVCProject.DAL
         public DbSet<NoticeSchedule> NoticeSchedules { get; set; }
         public DbSet<HomeRightNotice> HomeRightNotices { get; set; }
         public DbSet<WhyChoose> WhyChooses { get; set; }
-        public DbSet<HomeCard> HomeCards { get; set; }
-        public DbSet<HomeCourseTitle> HomeCourseTitles { get; set; }
+       
         public DbSet<HomeEvent> HomeEvents { get; set; }
-        public DbSet<HomeEventRight> HomeEventRights { get; set; }
+       
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Position> Positions { get; set; }
-        public DbSet<HomeBlog> HomeBlogs { get; set; }
-
+       
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Layout> Layouts { get; set; }
         public DbSet<Footer> Footers { get; set; }
         public DbSet<AboutBanner> AboutBanners { get; set; }
         public DbSet<AboutEduHome> AboutEduHomes { get; set; }
-        public DbSet<AboutTeacher> AboutTeachers { get; set; }
-        public DbSet<CourseBanner> CourseBanners { get; set; }
-        public DbSet<CourseDetailCard> CourseDetailCard { get; set; }
-        public DbSet<EventCard> EventCards { get; set; }
+      
+       
+        public DbSet<CourseDetailCard> CourseDetailCards { get; set; }
+     
         public DbSet<EventBanner> EventBanner { get; set; }
-        public DbSet<TeacherBanner> TeacherBanners { get; set; }
-        public DbSet<TeacherCard> TeacherCards { get; set; }
+
         public DbSet<BlogBanner> BlogBanners { get; set; }
-        public DbSet<BlogCard> BlogCards { get; set; }
+       
         public DbSet<ContactAdress> ContactAdresses { get; set; }
         public DbSet<ContactBanner> ContactBanners { get; set; }
-        public DbSet<CourseDetailBanner> CourseDetailBanners { get; set; }
-        public DbSet<CourseCard> CourseCards { get; set; }
+       
+     
         public DbSet<Emails> Emails { get; set; }
         public DbSet<EventDetailCard> EventDetailCards { get; set; }
-        public DbSet<TeacherDetailCard> TeacherDetailCards { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<BlogDetailCard> BlogDetailCards { get; set; }
         public DbSet<LeaveReply> LeaveReplies { get; set; }
 

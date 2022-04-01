@@ -8,7 +8,7 @@ namespace MVCProject.ViewModels
 {
     public class BlogVM
     {
-        public List<BlogCard> BlogCards { get; set; }
+        public List<BlogDetailCard> BlogDetailCards { get; set; }
         public List<BlogBanner> BlogBanners { get; set; }
     }
 }

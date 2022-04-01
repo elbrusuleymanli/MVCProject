@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="row">
-            @foreach (var item in Model.AboutTeachers)
+            @foreach (var item in Model.Teachers.Take(4))
             {
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-teacher">
@@ -81,13 +81,13 @@
                             <a asp-controller="Teacher" asp-action="Detail" asp-route-id="@item.Id"><img src="~/img/teacher/@item.Image" alt="teacher"></a>
                         </div>
                         <div class="single-teacher-content text-center">
-                            <h2><a href="teacher-details.html">@item.Name</a></h2>
-                            <h4>Associate Professor</h4>
+                            <h2><a href="teacher-details.html">@item.Fullname</a></h2>
+                            <h4>@item.Position</h4>
                             <ul>
-                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks">@Html.Raw(item.Facebook)</a></li>
-                                <li><a href="https://www.pinterest.com/devitemsllc/">@Html.Raw(item.Pinterest)</a></li>
-                                <li><a href="#">@Html.Raw(item.Vimeo)</a></li>
-                                <li><a href="https://twitter.com/devitemsllc">@Html.Raw(item.Twitter)</a></li>
+                                <li><a href="https://www.facebook.com/devitems/?ref=bookmarks"><i class="zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="https://www.pinterest.com/devitemsllc/"><i class="zmdi zmdi-pinterest"></i></a></li>
+                                <li><a href="#"><i class="zmdi zmdi-vimeo"></i></a></li>
+                                <li><a href="https://twitter.com/devitemsllc"><i class="zmdi zmdi-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>

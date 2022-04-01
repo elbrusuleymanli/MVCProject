@@ -29,7 +29,7 @@ namespace MVCProject.Controllers
             AboutVM model = new AboutVM
             {
                 AboutBanners = await _context.AboutBanners.ToListAsync(),
-                AboutTeachers=await _context.AboutTeachers.ToListAsync(),
+                Teachers=await _context.Teachers.ToListAsync(),
                 AboutEduHomes = await _context.AboutEduHomes.ToListAsync(),
                 Testimonials= await _context.Testimonials.Include(t=>t.Position).ToListAsync()
         };

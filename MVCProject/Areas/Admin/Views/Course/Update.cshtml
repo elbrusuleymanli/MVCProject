@@ -1,4 +1,4 @@
-﻿@model CourseCard
+﻿@model CourseDetailCard
 @{
     ViewData["Title"] = "Update";
 }
@@ -20,8 +20,8 @@
                           
                             <div class="form-group">
                                 <label for="exampleInputUsername1">Description</label>
-                                <textarea asp-for="Desc" class="form-control" placeholder="Description"></textarea>
-                                <span asp-validation-for="Desc" class="text-danger"></span>
+                                <textarea asp-for="Descr" class="form-control" placeholder="Description"></textarea>
+                                <span asp-validation-for="Descr" class="text-danger"></span>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputUsername1">Image File</label>
@@ -29,12 +29,7 @@
                                 <span asp-validation-for="CardImageFile" class="text-danger"></span>
                             </div>
                            
-                            <div class="form-group">
-                                <label for="exampleInputUsername1">Button</label>
-                                <input asp-for="Button" class="form-control" placeholder="Button">
-                                <span asp-validation-for="Button" class="text-danger"></span>
-                            </div>
-
+                            
                             <div class="form-check form-check-flat form-check-primary">
                                 <label class="form-check-label">
                                     <input type="checkbox" class="form-check-input">

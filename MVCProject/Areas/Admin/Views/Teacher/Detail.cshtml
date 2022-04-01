@@ -1,5 +1,5 @@
 ﻿
-@model TeacherCard
+@model Teacher
 @{
     ViewData["Title"] = "Detail";
 }
@@ -15,12 +15,16 @@
                         <h4 class="card-title"><img src="~/img/teacher/@Model.Image" style="width:300px; height:220px" /></h4>
 
                         <ul class="list-star">
-                            <li><span style="color:blue">Name:</span>  @Model.Name</li>
+                            <li><span style="color:blue">Fullname:</span>  @Model.Fullname</li>
                             <li><span style="color:blue">Position: </span>  @Model.Position</li>
-                            <li><span style="color:blue">Facebook: </span>  @Model.Facebook</li>
-                            <li><span style="color:blue">Vimeo: </span>  @Model.Vimeo</li>
-                            <li><span style="color:blue">Pinterest: </span>  @Model.Pinterest</li>
-                            <li><span style="color:blue">Twitter:</span>  @Model.Twitter</li>
+                            <li><span style="color:blue">Title: </span>  @Model.Title</li>
+                            <li><span style="color:blue">Description: </span>  @Model.Description</li>
+                            <li><span style="color:blue">Degree: </span>  @Model.Degree</li>
+                            <li><span style="color:blue">Experience:</span>  @Model.Experience</li>
+                            <li><span style="color:blue">Hobby: </span>  @Model.Hobby</li>
+                            <li><span style="color:blue">Faculty: </span>  @Model.Faculty</li>
+                            <li><span style="color:blue">Email: </span>  @Model.Email</li>
+                            <li><span style="color:blue">Phone: </span>  @Model.Phone</li>
 
                         </ul>
                     </div>

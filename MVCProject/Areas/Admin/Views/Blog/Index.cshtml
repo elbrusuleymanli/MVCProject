@@ -1,5 +1,5 @@
 ﻿
-@model List<BlogCard>
+@model List<BlogDetailCard>
 @{
     ViewData["Title"] = "Index";
 }
@@ -24,19 +24,14 @@
                                         <th>
                                             Date
                                         </th>
-                                        <th>
-                                            CommentIcon
-                                        </th>
+                                      
                                         <th>
                                             Comment Count
                                         </th>
                                         <th>
                                             Description
                                         </th>
-                                        <th>
-                                           Button
-                                        </th>
-
+                                      
                                         <th>
                                             Actions
                                         </th>
@@ -53,18 +48,14 @@
                                             <td>
                                                 @card.Date
                                             </td>
-                                            <td>
-                                                @Html.Raw(card.CommentIcon)
-                                            </td>
+                                         
                                             <td>
                                                 @card.CountComment
                                             </td>
                                             <td>
                                                 @card.Desc
                                             </td>
-                                            <td>
-                                                @card.Button
-                                            </td>
+                                          
 
                                             <td>
 

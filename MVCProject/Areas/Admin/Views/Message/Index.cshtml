@@ -51,15 +51,14 @@
                                                 @message.Subject
                                             </td>
                                             <td  >
-                                                <textarea cols="50" rows="10">
-                                               @message.Text 
-                                                    </textarea>
+                                               @(message.Text.Length>20 ? message.Text.Substring(0,20):message.Text)
+                                                    
                                                
                                             </td>
                                             <td>
 
 
-                                              <a  mt-2 onclick="return confirm('Are you sure?');" asp-controller="Message" asp-action="Delete" asp-route-id="@message.Id">Delete</a>
+                                              <a  mt-2 onclick="return confirm('Are you sure?');" asp-controller="Message" asp-action="Delete" asp-route-id="@message.Id"><i class="fa-xl fa-solid fa-trash-can"></i></a>
                                             </td>
                                         </tr>
                                     }

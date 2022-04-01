@@ -25,13 +25,13 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var eventCard = await _context.EventCards.ToListAsync();
+            var eventCard = await _context.EventDetailCards.ToListAsync();
             return View(eventCard);
         }
       
         public async Task<IActionResult> Detail(int id)
         {
-            var cards = await _context.EventCards.FindAsync(id);
+            var cards = await _context.EventDetailCards.FindAsync(id);
             if (cards == null) return NotFound();
             return View(cards);
 
@@ -45,7 +45,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(EventCard eventCard)
+        public async Task<IActionResult> Create(EventDetailCard eventCard)
         {
             if (!ModelState.IsValid) return View();
 
@@ -59,7 +59,7 @@ namespace MVCProject.Areas.Admin.Controllers
             var folderPath = FileConstants.EventImagePath;
 
             eventCard.Image = FileUtils.CreateFile(folderPath, eventCard.EventImageFile);
-            await _context.EventCards.AddAsync(eventCard);
+            await _context.EventDetailCards.AddAsync(eventCard);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -67,7 +67,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var eventCard = await _context.EventCards.FindAsync(id);
+            var eventCard = await _context.EventDetailCards.FindAsync(id);
             if (eventCard == null) return NotFound();
 
             return View(eventCard);
@@ -77,7 +77,7 @@ namespace MVCProject.Areas.Admin.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeleteCard(int id)
         {
-            var eventCard = await _context.EventCards.FindAsync(id);
+            var eventCard = await _context.EventDetailCards.FindAsync(id);
             if (eventCard == null) return NotFound();
 
             var fullPath = Path.Combine(FileConstants.EventImagePath, eventCard.Image);
@@ -86,7 +86,7 @@ namespace MVCProject.Areas.Admin.Controllers
             FileUtils.DeleteFile(fullPath);
 
 
-            _context.EventCards.Remove(eventCard);
+            _context.EventDetailCards.Remove(eventCard);
 
             await _context.SaveChangesAsync();
 
@@ -95,7 +95,7 @@ namespace MVCProject.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            var eventCard = await _context.EventCards.FindAsync(id);
+            var eventCard = await _context.EventDetailCards.FindAsync(id);
 
             if (eventCard == null) return NotFound();
 
@@ -104,9 +104,9 @@ namespace MVCProject.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int id, EventCard eventCard)
+        public async Task<IActionResult> Update(int id, EventDetailCard eventCard)
         {
-            var dbeventCard = await _context.EventCards.FindAsync(id);
+            var dbeventCard = await _context.EventDetailCards.FindAsync(id);
 
             if (dbeventCard == null) return NotFound();
             if (id != eventCard.Id) return BadRequest();
@@ -116,12 +116,11 @@ namespace MVCProject.Areas.Admin.Controllers
 
             dbeventCard.Image = FileUtils.CreateFile(FileConstants.EventImagePath, eventCard.EventImageFile);
 
-            dbeventCard.Title = eventCard.Title;
-            dbeventCard.Date = eventCard.Date;
-            dbeventCard.Month = eventCard.Month;
-            dbeventCard.Time = eventCard.Time;
-            dbeventCard.City = eventCard.City;
-            dbeventCard.Button = eventCard.Button;
+            dbeventCard.Descr = eventCard.Descr;
+            dbeventCard.StartDate = eventCard.StartDate;
+            dbeventCard.EndDate = eventCard.EndDate;
+            dbeventCard.Adress = eventCard.Adress;
+           
 
 
 

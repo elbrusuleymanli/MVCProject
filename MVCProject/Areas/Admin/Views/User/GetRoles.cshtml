@@ -38,7 +38,7 @@
                                             </td>
 
                                             <td>
-                                       <a class="btn btn-danger mt-2" asp-controller="User" asp-action="RemoveRole" asp-route-id="@ViewBag.UserId" asp-route-roleName="@roleName">Remove Role</a>
+                                       <a class="btn btn-danger mt-2" onclick="return confirm('Are you sure?');" asp-controller="User" asp-action="RemoveRole" asp-route-id="@ViewBag.UserId" asp-route-roleName="@roleName">Remove Role</a>
                                        <a class="btn btn-primary mt-2" asp-controller="User" asp-action="AddRoles" asp-route-id="@ViewBag.UserId">Add Role</a>
 
                                             </td>
